@@ -20,7 +20,6 @@ final class SFButton: SKNode {
         super.init()
         self.setupBindings()
         self.setupCurrentNode()
-//        self.position = CGPoint(x: self.parent!.frame.midX, y: self.parent!.frame.midY)
     }
     
     required init?(coder: NSCoder) {
