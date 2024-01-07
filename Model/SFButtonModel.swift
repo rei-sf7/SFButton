@@ -17,6 +17,7 @@ final class SFButtonModel: SFButtonModelProtocol {
         self.button = SKShapeNode(rectOf: CGSize(width: 80, height: 30), cornerRadius: 5)
         self.button.position = CGPoint(x: self.button.frame.size.width / 2, y: -self.button.frame.size.height / 2)
         self.button.fillColor = .lightGray
+        self.button.lineWidth = 1
         self.label = SFLabel()
         self.label.setAlignmentMode(.center, horizontal: .center)
     }

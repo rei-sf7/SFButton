@@ -31,6 +31,15 @@ final class SFButton: SKNode {
         }
     }
     
+    var strokeSize: CGFloat {
+        get {
+            return self.viewModel.getStrokeSize()
+        }
+        set(value) {
+            self.viewModel.setStrokeSize(value)
+        }
+    }
+    
     override init() {
         super.init()
         self.setupBindings()

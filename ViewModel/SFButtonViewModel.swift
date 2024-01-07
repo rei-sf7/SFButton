@@ -9,6 +9,8 @@ protocol SFButtonViewModelProtocol: AnyObject {
     func setFillColor(_ val: UIColor)
     func getStrokeColor() -> UIColor
     func setStrokeColor(_ val: UIColor)
+    func getStrokeSize() -> CGFloat
+    func setStrokeSize(_ val: CGFloat)
 }
 
 final class SFButtonViewModel: SFButtonViewModelProtocol {
@@ -36,5 +38,11 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     }
     func setStrokeColor(_ val: UIColor) {
         self.model.button.strokeColor = val
+    }
+    func getStrokeSize() -> CGFloat {
+        return self.model.button.lineWidth
+    }
+    func setStrokeSize(_ val: CGFloat) {
+        self.model.button.lineWidth = val
     }
 }
