@@ -22,6 +22,15 @@ final class SFButton: SKNode {
         }
     }
     
+    var strokeColor: UIColor {
+        get {
+            return self.viewModel.getStrokeColor()
+        }
+        set(value) {
+            self.viewModel.setStrokeColor(value)
+        }
+    }
+    
     override init() {
         super.init()
         self.setupBindings()

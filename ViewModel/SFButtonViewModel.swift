@@ -7,6 +7,8 @@ protocol SFButtonViewModelProtocol: AnyObject {
     func setText(_ val: String)
     func getFillColor() -> UIColor
     func setFillColor(_ val: UIColor)
+    func getStrokeColor() -> UIColor
+    func setStrokeColor(_ val: UIColor)
 }
 
 final class SFButtonViewModel: SFButtonViewModelProtocol {
@@ -28,5 +30,11 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     }
     func setFillColor(_ val: UIColor) {
         self.model.button.fillColor = val
+    }
+    func getStrokeColor() -> UIColor {
+        return self.model.button.strokeColor
+    }
+    func setStrokeColor(_ val: UIColor) {
+        self.model.button.strokeColor = val
     }
 }
