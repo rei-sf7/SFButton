@@ -1,9 +1,12 @@
 import Foundation
+import UIKit
 
 protocol SFButtonViewModelProtocol: AnyObject {
     func setAlpha(_ val: CGFloat)
     func getText() -> String
     func setText(_ val: String)
+    func getFillColor() -> UIColor
+    func setFillColor(_ val: UIColor)
 }
 
 final class SFButtonViewModel: SFButtonViewModelProtocol {
@@ -19,5 +22,11 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     }
     func setText(_ val: String) {
         self.model.label.text = val
+    }
+    func getFillColor() -> UIColor {
+        return self.model.button.fillColor
+    }
+    func setFillColor(_ val: UIColor) {
+        self.model.button.fillColor = val
     }
 }

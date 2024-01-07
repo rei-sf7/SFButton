@@ -4,15 +4,21 @@ final class SFButton: SKNode {
     private var model: SFButtonModelProtocol!
     private var viewModel: SFButtonViewModelProtocol!
     
-    var text: String
-    {
-        get
-        {
+    var text: String {
+        get {
             return self.viewModel.getText()
         }
-        set(value)
-        {
+        set(value) {
             self.viewModel.setText(value)
+        }
+    }
+    
+    var fillColor: UIColor {
+        get {
+            return self.viewModel.getFillColor()
+        }
+        set(value) {
+            self.viewModel.setFillColor(value)
         }
     }
     
