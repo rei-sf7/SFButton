@@ -29,7 +29,7 @@ final class SFButtonModel: SFButtonModelProtocol {
     }
     
     
-    /// ボタンの塗り潰しカラー
+    /// ボタンの塗り潰しカラーの更新
     /// - Parameter val: カラー情報
     func setPanelColor(_ val: UIColor) {
         self.button.fillColor = val
@@ -40,7 +40,7 @@ final class SFButtonModel: SFButtonModelProtocol {
 //        self.label.size = val
     }
     
-    /// ボタンの表示・非表示切り替え
+    /// ボタンの表示・非表示の切り替え
     /// - Parameter val: 有効・無効フラグ
     func setEnable(_ val: Bool) {
         self.button.isHidden = val
