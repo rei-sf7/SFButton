@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 
+/// ボタンのビューモデルクラスのプロトコル
 protocol SFButtonViewModelProtocol: AnyObject {
     func setAlpha(_ val: CGFloat)
     func getText() -> String
@@ -13,14 +14,27 @@ protocol SFButtonViewModelProtocol: AnyObject {
     func setStrokeSize(_ val: CGFloat)
 }
 
+
+/// ボタンのビューモデルクラス
 final class SFButtonViewModel: SFButtonViewModelProtocol {
+    
+    /// ボタンのモデルクラスのプロトコル
     private let model: SFButtonModelProtocol
+    
+    
+    /// 初期化
+    /// - Parameter model: ボタンのモデルクラスのプロトコル
     init(_ model: SFButtonModelProtocol) {
         self.model = model
     }
+    
+    
+    /// ボタンの透過度の更新
+    /// - Parameter val: 透過度[0.0 - 1.0]
     public func setAlpha(_ val: CGFloat) {
         self.model.setAlpha(val)
     }
+    
     func getText() -> String {
         return self.model.label.text
     }
