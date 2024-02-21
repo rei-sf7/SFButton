@@ -21,7 +21,6 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     /// ボタンのモデルクラスのプロトコル
     private let model: SFButtonModelProtocol
     
-    
     /// 初期化
     /// - Parameter model: ボタンのモデルクラスのプロトコル
     init(_ model: SFButtonModelProtocol) {
@@ -34,9 +33,14 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
         self.model.setAlpha(val)
     }
     
+    /// ボタンのラベルテキストを取得する
+    /// - Returns: ラベルテキストの文字列
     func getText() -> String {
         return self.model.label.text
     }
+    
+    /// ボタンのラベルテキストを更新する
+    /// - Parameter val: ラベルテキストの文字列
     func setText(_ val: String) {
         self.model.label.text = val
     }
