@@ -20,7 +20,6 @@ final class SFButton: SKNode {
         }
     }
     
-    
     /// ボタンの塗り潰しカラー
     var fillColor: UIColor {
         get {
@@ -30,7 +29,6 @@ final class SFButton: SKNode {
             self.viewModel.setFillColor(value)
         }
     }
-    
     
     /// ボタンの枠線のカラー
     var strokeColor: UIColor {
@@ -42,6 +40,7 @@ final class SFButton: SKNode {
         }
     }
     
+    /// ボタンの枠線の太さのポイントサイズ
     var strokeSize: CGFloat {
         get {
             return self.viewModel.getStrokeSize()
@@ -51,12 +50,16 @@ final class SFButton: SKNode {
         }
     }
     
+    /// 初期化
     override init() {
         super.init()
         self.setupBindings()
         self.setupCurrentNode()
     }
     
+    
+    /// 初期化（未使用）
+    /// - Parameter coder: -
     required init?(coder: NSCoder) {
         fatalError("init(coder:) \(NSLocalizedString("error_009", comment: ""))")
     }
@@ -75,6 +78,11 @@ final class SFButton: SKNode {
         self.isUserInteractionEnabled = true
     }
     
+    /// -
+    /// - Parameters:
+    ///   - attribute: -
+    ///   - toNode: -
+    ///   - toAttribute: -
     func setAutoLayout(_ attribute: SKNode.layout, toNode: SKNode,_ toAttribute: SKNode.layout) {
         if attribute == .top && toAttribute == .top  {
             self.position.y = toNode.position.y
@@ -82,6 +90,9 @@ final class SFButton: SKNode {
     }
     
     /// 画面から指が離れた時のイベント処理
+    /// - Parameters:
+    ///   - touches: -
+    ///   - event: -
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("button tap")
         print("Y=\(self.position.y)")
