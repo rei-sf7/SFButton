@@ -28,7 +28,6 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
         self.model = model
     }
     
-    
     /// ボタンの透過度の更新
     /// - Parameter val: 透過度[0.0 - 1.0]
     public func setAlpha(_ val: CGFloat) {
