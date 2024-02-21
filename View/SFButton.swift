@@ -1,9 +1,16 @@
 import SpriteKit
 
+/// ボタンのビュークラス
 final class SFButton: SKNode {
+    
+    /// モデルクラスのプロトコル
     private var model: SFButtonModelProtocol!
+    
+    /// ビューモデルクラスのプロトコル
     private var viewModel: SFButtonViewModelProtocol!
     
+    
+    /// ボタンのラベルテキスト
     var text: String {
         get {
             return self.viewModel.getText()
@@ -13,6 +20,8 @@ final class SFButton: SKNode {
         }
     }
     
+    
+    /// ボタンの塗り潰しカラー
     var fillColor: UIColor {
         get {
             return self.viewModel.getFillColor()
@@ -22,6 +31,8 @@ final class SFButton: SKNode {
         }
     }
     
+    
+    /// ボタンの枠線のカラー
     var strokeColor: UIColor {
         get {
             return self.viewModel.getStrokeColor()
