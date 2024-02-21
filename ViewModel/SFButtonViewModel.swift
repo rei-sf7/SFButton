@@ -44,21 +44,39 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     func setText(_ val: String) {
         self.model.label.text = val
     }
+    
+    /// ボタンの塗り潰しカラーを取得する
+    /// - Returns: カラー情報
     func getFillColor() -> UIColor {
         return self.model.button.fillColor
     }
+    
+    /// ボタンの塗り潰しカラーを更新する
+    /// - Parameter val: カラー情報
     func setFillColor(_ val: UIColor) {
         self.model.button.fillColor = val
     }
+    
+    /// ボタンの枠線のカラーを取得する
+    /// - Returns: カラー情報
     func getStrokeColor() -> UIColor {
         return self.model.button.strokeColor
     }
+    
+    /// ボタンの枠線のカラーを更新する
+    /// - Parameter val: カラー情報
     func setStrokeColor(_ val: UIColor) {
         self.model.button.strokeColor = val
     }
+    
+    /// ボタンの枠線の太さを取得する
+    /// - Returns: 枠線の太さのポイントサイズ
     func getStrokeSize() -> CGFloat {
         return self.model.button.lineWidth
     }
+    
+    /// ボタンの枠線の太さを更新する
+    /// - Parameter val: 枠線の太さのポイントサイズ
     func setStrokeSize(_ val: CGFloat) {
         self.model.button.lineWidth = val
     }
