@@ -58,7 +58,7 @@ final class SFButton: SKNode {
     }
     
     
-    /// 初期化（未使用）
+    /// 初期化（定義のみ、未使用）
     /// - Parameter coder: -
     required init?(coder: NSCoder) {
         fatalError("init(coder:) \(NSLocalizedString("error_009", comment: ""))")
