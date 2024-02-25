@@ -36,13 +36,14 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     /// ボタンのラベルテキストを取得する
     /// - Returns: ラベルテキストの文字列
     func getText() -> String {
-        return self.model.label.text
+//        return self.model.label.text
+        return ""
     }
     
     /// ボタンのラベルテキストを更新する
     /// - Parameter val: ラベルテキストの文字列
     func setText(_ val: String) {
-        self.model.label.text = val
+//        self.model.label.text = val
     }
     
     /// ボタンの塗り潰しカラーを取得する

@@ -83,11 +83,11 @@ final class SFButton: SKNode {
     ///   - attribute: -
     ///   - toNode: -
     ///   - toAttribute: -
-    func setAutoLayout(_ attribute: SKNode.layout, toNode: SKNode,_ toAttribute: SKNode.layout) {
-        if attribute == .top && toAttribute == .top  {
-            self.position.y = toNode.position.y
-        }
-    }
+//    func setAutoLayout(_ attribute: SKNode.layout, toNode: SKNode,_ toAttribute: SKNode.layout) {
+//        if attribute == .top && toAttribute == .top  {
+//            self.position.y = toNode.position.y
+//        }
+//    }
     
     /// 画面から指が離れた時のイベント処理
     /// - Parameters:
