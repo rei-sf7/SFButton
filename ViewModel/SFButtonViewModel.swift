@@ -49,36 +49,36 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     /// ボタンの塗り潰しカラーを取得する
     /// - Returns: カラー情報
     func getFillColor() -> UIColor {
-        return self.model.button.fillColor
+        return self.model.buttonNode.fillColor
     }
     
     /// ボタンの塗り潰しカラーを更新する
     /// - Parameter val: カラー情報
     func setFillColor(_ val: UIColor) {
-        self.model.button.fillColor = val
+        self.model.buttonNode.fillColor = val
     }
     
     /// ボタンの枠線のカラーを取得する
     /// - Returns: カラー情報
     func getStrokeColor() -> UIColor {
-        return self.model.button.strokeColor
+        return self.model.buttonNode.strokeColor
     }
     
     /// ボタンの枠線のカラーを更新する
     /// - Parameter val: カラー情報
     func setStrokeColor(_ val: UIColor) {
-        self.model.button.strokeColor = val
+        self.model.buttonNode.strokeColor = val
     }
     
     /// ボタンの枠線の太さを取得する
     /// - Returns: 枠線の太さのポイントサイズ
     func getStrokeSize() -> CGFloat {
-        return self.model.button.lineWidth
+        return self.model.buttonNode.lineWidth
     }
     
     /// ボタンの枠線の太さを更新する
     /// - Parameter val: 枠線の太さのポイントサイズ
     func setStrokeSize(_ val: CGFloat) {
-        self.model.button.lineWidth = val
+        self.model.buttonNode.lineWidth = val
     }
 }

@@ -38,15 +38,14 @@ final class SFButtonModel: SFButtonModelProtocol {
         self.buttonNode.lineWidth = 1
         self.labelNode = SFLabel()
         self.labelNode.setAlignmentMode(.center, horizontal: .center)
-        /// 親ノードに子ノードを繋げる
-        self.buttonNode.addChild(self.labelNode)
+        self.buttonNode.addChild(self.labelNode)    /// 親ノードに子ノードを繋げる
     }
     
     
     /// ボタンの塗り潰しカラーの更新
     /// - Parameter val: カラー情報
     func setPanelColor(_ val: UIColor) {
-        self.button.fillColor = val
+        self.buttonNode.fillColor = val
     }
     
 

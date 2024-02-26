@@ -62,10 +62,8 @@ final class SFButton: SKNode {
     private func setupBindings() {
         let model = SFButtonModel() as SFButtonModelProtocol
         self.viewModel = SFButtonViewModel(model) as SFButtonViewModelProtocol
-        /// 親ノードに子ノードを繋げる
-        self.addChild(model.button)
-        // ボタンにイベントを追加する
-        self.isUserInteractionEnabled = true
+        self.addChild(model.buttonNode)         // 親ノードに子ノードを繋げる
+        self.isUserInteractionEnabled = true    // ボタンにイベントを追加する
     }
         
     /// -
