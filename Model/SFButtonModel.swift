@@ -3,29 +3,43 @@ import SpriteKit
 
 /// ボタンのモデルクラスのプロトコル
 protocol SFButtonModelProtocol: AnyObject {
-    var button: SKShapeNode { get }
-    var label: SFLabel { get }
+    /// ボタンのノード
+    var buttonNode: SKShapeNode { get }
+    /// ラベルのノード
+    var labelNode: SFLabel { get }
+
+    /// ボタンの塗り潰しカラーの更新
+    /// - Parameter val: カラー情報
     func setPanelColor(_ val: UIColor)
+
     func setPanelSize(_ val: CGSize)
+
+    /// ボタンの表示・非表示の切り替え
+    /// - Parameter val: 有効・無効フラグ
     func setEnable(_ val: Bool)
+
+    /// ボタンの透過度の更新
+    /// - Parameter val: 透過度[0.0 - 1.0]
     func setAlpha(_ val: CGFloat)
 }
 
 /// ボタンのモデルクラス
 final class SFButtonModel: SFButtonModelProtocol {
-    /// ノード
-    private(set) var button: SKShapeNode
-    /// ラベル
-    private(set) var label: SFLabel
+    /// ボタンのノード
+    private(set) var buttonNode: SKShapeNode
+    /// ラベルのノード
+    private(set) var labelNode: SFLabel
     
     /// 初期化
     init() {
-        self.button = SKShapeNode(rectOf: CGSize(width: 80, height: 30), cornerRadius: 5)
-        self.button.position = CGPoint(x: self.button.frame.size.width / 2, y: -self.button.frame.size.height / 2)
-        self.button.fillColor = .lightGray
-        self.button.lineWidth = 1
-        self.label = SFLabel()
-        self.label.setAlignmentMode(.center, horizontal: .center)
+        self.buttonNode = SKShapeNode(rectOf: CGSize(width: 80, height: 30), cornerRadius: 5)
+        self.buttonNode.position = CGPoint(x: self.buttonNode.frame.size.width / 2, y: -self.buttonNode.frame.size.height / 2)
+        self.buttonNode.fillColor = .lightGray
+        self.buttonNode.lineWidth = 1
+        self.labelNode = SFLabel()
+        self.labelNode.setAlignmentMode(.center, horizontal: .center)
+        /// 親ノードに子ノードを繋げる
+        self.buttonNode.addChild(self.labelNode)
     }
     
     
@@ -35,6 +49,7 @@ final class SFButtonModel: SFButtonModelProtocol {
         self.button.fillColor = val
     }
     
+
     func setPanelSize(_ val: CGSize) {
 //        self.button.frame = CGRectMake(self.button.frame.origin.x, self.button.frame.origin.y, val.width, val.height)
 //        self.label.size = val
@@ -43,12 +58,12 @@ final class SFButtonModel: SFButtonModelProtocol {
     /// ボタンの表示・非表示の切り替え
     /// - Parameter val: 有効・無効フラグ
     func setEnable(_ val: Bool) {
-        self.button.isHidden = val
+        self.buttonNode.isHidden = val
     }
     
     /// ボタンの透過度の更新
     /// - Parameter val: 透過度[0.0 - 1.0]
     func setAlpha(_ val: CGFloat) {
-        self.button.alpha = val
+        self.buttonNode.alpha = val
     }
 }

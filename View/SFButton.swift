@@ -3,12 +3,8 @@ import SpriteKit
 /// ボタンのビュークラス
 final class SFButton: SKNode {
     
-    /// モデルクラスのプロトコル
-    private var model: SFButtonModelProtocol!
-    
-    /// ビューモデルクラスのプロトコル
-    private var viewModel: SFButtonViewModelProtocol!
-    
+    /// ビューモデルクラス（プロトコル経由）
+    private var viewModel: SFButtonViewModelProtocol! 
     
     /// ボタンのラベルテキスト
     var text: String {
@@ -54,9 +50,7 @@ final class SFButton: SKNode {
     override init() {
         super.init()
         self.setupBindings()
-        self.setupCurrentNode()
     }
-    
     
     /// 初期化（定義のみ、未使用）
     /// - Parameter coder: -
@@ -66,18 +60,14 @@ final class SFButton: SKNode {
     
     /// ViewクラスにViewModelとModelを関連付ける
     private func setupBindings() {
-        self.model = SFButtonModel() as SFButtonModelProtocol
-        self.viewModel = SFButtonViewModel(self.model) as SFButtonViewModelProtocol
-    }
-    
-    /// 親ノードのセッティング
-    private func setupCurrentNode() {
-        self.model.button.addChild(self.model.label)
-        self.addChild(self.model.button)
+        let model = SFButtonModel() as SFButtonModelProtocol
+        self.viewModel = SFButtonViewModel(model) as SFButtonViewModelProtocol
+        /// 親ノードに子ノードを繋げる
+        self.addChild(model.button)
         // ボタンにイベントを追加する
         self.isUserInteractionEnabled = true
     }
-    
+        
     /// -
     /// - Parameters:
     ///   - attribute: -
@@ -99,9 +89,9 @@ final class SFButton: SKNode {
         print("X=\(self.position.x)")
         print("width=\(self.frame.width)")
         print("height=\(self.frame.height)")
-        print("btnY=\(self.model.button.position.y)")
-        print("btnX=\(self.model.button.position.x)")
-        print("btnWidth=\(self.model.button.frame.width)")
-        print("btnHeight=\(self.model.button.frame.height)")
+        // print("btnY=\(self.model.button.position.y)")
+        // print("btnX=\(self.model.button.position.x)")
+        // print("btnWidth=\(self.model.button.frame.width)")
+        // print("btnHeight=\(self.model.button.frame.height)")
     }
 }
