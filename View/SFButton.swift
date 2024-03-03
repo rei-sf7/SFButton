@@ -50,7 +50,6 @@ final class SFButton: SKNode {
     override init() {
         super.init()
         self.setupBindings()
-        self.viewModel.setFillColor(.blueWithHintsOfBlue)
     }
     
     /// 初期化（定義のみ、未使用）

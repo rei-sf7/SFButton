@@ -45,8 +45,9 @@ final class SFButtonModel: SFButtonModelProtocol {
 //        self.button.fillColor = .lightGray
         self.button.lineWidth = 1
         self.label = SFLabel()
+        self.label.setText("SFButton")
         self.label.setFontColor(.white)
-        self.label.setAlignmentMode(.center, horizontal: .center)
+        self.label.setAlignmentMode(.center, .center)
         self.button.addChild(self.label)    /// 親ノードに子ノードを繋げる
     }
     

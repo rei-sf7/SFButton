@@ -33,6 +33,7 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     /// - Parameter model: ボタンのモデルクラスのプロトコル
     init(_ model: SFButtonModelProtocol) {
         self.model = model
+        self.setFillColor(.blueWithHintsOfBlue)
     }
     
     /// ボタンの透過度の更新
