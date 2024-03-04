@@ -6,16 +6,6 @@ final class SFButton: SKNode {
     /// ビューモデルクラス（プロトコル経由）
     private var viewModel: SFButtonViewModelProtocol!
     
-    /// ボタンの枠線のカラー
-    var strokeColor: UIColor {
-        get {
-            return self.viewModel.getStrokeColor()
-        }
-        set(value) {
-            self.viewModel.setStrokeColor(value)
-        }
-    }
-    
     /// ボタンの枠線の太さのポイントサイズ
     var strokeSize: CGFloat {
         get {
@@ -60,6 +50,12 @@ final class SFButton: SKNode {
     func setText(_ text: String) {
         self.viewModel.setText(text)
     }
+    
+    /// ボタンの枠線のカラー
+    func setStrokeColor(_ colorName: SFColor.ColorName) {
+        self.viewModel.setStrokeColor(colorName)
+    }
+    
         
     /// -
     /// - Parameters:

@@ -13,8 +13,14 @@ protocol SFButtonViewModelProtocol: AnyObject {
     /// - Parameter val: ラベルテキストの文字列
     func setText(_ text: String)
     
+    /// ボタンの枠線のカラーを取得する
+    /// - Returns: カラー情報
     func getStrokeColor() -> UIColor
-    func setStrokeColor(_ val: UIColor)
+    
+    /// ボタンの枠線のカラーを更新する
+    /// - Parameter val: カラー情報
+    func setStrokeColor(_ val: SFColor.ColorName)
+    
     func getStrokeSize() -> CGFloat
     func setStrokeSize(_ val: CGFloat)
     
@@ -74,13 +80,13 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     /// ボタンの枠線のカラーを取得する
     /// - Returns: カラー情報
     func getStrokeColor() -> UIColor {
-        return self.model.button.strokeColor
+        return self.model.getStrokeColor()
     }
     
     /// ボタンの枠線のカラーを更新する
-    /// - Parameter val: カラー情報
-    func setStrokeColor(_ val: UIColor) {
-        self.model.button.strokeColor = val
+    /// - Parameter colorName: カラー情報
+    func setStrokeColor(_ colorName: SFColor.ColorName) {
+        self.model.setStrokeColor(colorName)
     }
     
     /// ボタンの枠線の太さを取得する

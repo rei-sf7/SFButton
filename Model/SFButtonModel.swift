@@ -14,6 +14,14 @@ protocol SFButtonModelProtocol: AnyObject {
     /// - Parameter colorName: カラーカタログのカラー名
     func setFillColor(_ colorName: SFColor.ColorName)
     
+    /// ボタンの枠線のカラーを取得する
+    /// - Returns: カラー情報
+    func getStrokeColor() -> UIColor
+    
+    /// ボタンの枠線のカラーを更新する
+    /// - Parameter colorName: カラー情報
+    func setStrokeColor(_ colorName: SFColor.ColorName)
+    
     /// ボタンのラベルテキストを取得する
     /// - Returns: ラベルテキストの文字列
     func getText() -> String
@@ -66,6 +74,18 @@ final class SFButtonModel: SFButtonModelProtocol {
     /// - Returns: カラー情報
     func getFillColor() -> UIColor {
         return self.button.fillColor
+    }
+    
+    /// ボタンの枠線のカラーを取得する
+    /// - Returns: カラー情報
+    func getStrokeColor() -> UIColor {
+        return self.button.strokeColor
+    }
+    
+    /// ボタンの枠線のカラーを更新する
+    /// - Parameter colorName: カラー情報
+    func setStrokeColor(_ colorName: SFColor.ColorName) {
+        self.button.strokeColor = SFColor().getColor(colorName)
     }
     
     /// ボタンのラベルテキストを取得する
