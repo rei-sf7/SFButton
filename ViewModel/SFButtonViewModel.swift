@@ -4,10 +4,15 @@ import UIKit
 /// ボタンのビューモデルクラスのプロトコル
 protocol SFButtonViewModelProtocol: AnyObject {
     func setAlpha(_ val: CGFloat)
+    
+    /// ボタンのラベルテキストを取得する
+    /// - Returns: ラベルテキストの文字列
     func getText() -> String
-    func setText(_ val: String)
-//    func getFillColor() -> UIColor
-//    func setFillColor(_ val: UIColor)
+    
+    /// ボタンのラベルテキストを更新する
+    /// - Parameter val: ラベルテキストの文字列
+    func setText(_ text: String)
+    
     func getStrokeColor() -> UIColor
     func setStrokeColor(_ val: UIColor)
     func getStrokeSize() -> CGFloat
@@ -45,27 +50,14 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     /// ボタンのラベルテキストを取得する
     /// - Returns: ラベルテキストの文字列
     func getText() -> String {
-//        return self.model.label.text
-        return ""
+        return self.model.getText()
     }
     
     /// ボタンのラベルテキストを更新する
     /// - Parameter val: ラベルテキストの文字列
-    func setText(_ val: String) {
-//        self.model.label.text = val
+    func setText(_ text: String) {
+        self.model.setText(text)
     }
-    
-//    /// ボタンの塗り潰しカラーを取得する
-//    /// - Returns: カラー情報
-//    func getFillColor() -> UIColor {
-//        return self.model.button.fillColor
-//    }
-//    
-//    /// ボタンの塗り潰しカラーを更新する
-//    /// - Parameter val: カラー情報
-//    func setFillColor(_ val: UIColor) {
-//        self.model.button.fillColor = val
-//    }
     
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名

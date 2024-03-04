@@ -3,18 +3,24 @@ import SpriteKit
 
 /// ボタンのモデルクラスのプロトコル
 protocol SFButtonModelProtocol: AnyObject {
+    
     /// ボタンのノード
     var button: SKShapeNode { get }
+    
     /// ラベルのノード
     var label: SFLabel { get }
-
-//    /// ボタンの塗り潰しカラーの更新
-//    /// - Parameter val: カラー情報
-//    func setPanelColor(_ val: UIColor)
 
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名
     func setFillColor(_ colorName: SFColor.ColorName)
+    
+    /// ボタンのラベルテキストを取得する
+    /// - Returns: ラベルテキストの文字列
+    func getText() -> String
+    
+    /// ボタンのラベルテキストを更新する
+    /// - Parameter val: ラベルテキストの文字列
+    func setText(_ text: String)
     
     /// ボタンの塗り潰しカラーを取得する
     /// - Returns: カラー情報
@@ -42,7 +48,6 @@ final class SFButtonModel: SFButtonModelProtocol {
     init() {
         self.button = SKShapeNode(rectOf: CGSize(width: 300, height: 80), cornerRadius: 5)
         self.button.position = CGPoint(x: self.button.frame.size.width / 2, y: -self.button.frame.size.height / 2)
-//        self.button.fillColor = .lightGray
         self.button.lineWidth = 1
         self.label = SFLabel()
         self.label.setText("SFButton")
@@ -50,14 +55,7 @@ final class SFButtonModel: SFButtonModelProtocol {
         self.label.setAlignmentMode(.center, .center)
         self.button.addChild(self.label)    /// 親ノードに子ノードを繋げる
     }
-    
-    
-//    /// ボタンの塗り潰しカラーの更新
-//    /// - Parameter val: カラー情報
-//    func setPanelColor_bk(_ val: UIColor) {
-//        self.button.fillColor = val
-//    }
-    
+        
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名
     func setFillColor(_ colorName: SFColor.ColorName) {
@@ -68,6 +66,18 @@ final class SFButtonModel: SFButtonModelProtocol {
     /// - Returns: カラー情報
     func getFillColor() -> UIColor {
         return self.button.fillColor
+    }
+    
+    /// ボタンのラベルテキストを取得する
+    /// - Returns: ラベルテキストの文字列
+    func getText() -> String {
+        return self.label.getText()
+    }
+    
+    /// ボタンのラベルテキストを更新する
+    /// - Parameter val: ラベルテキストの文字列
+    func setText(_ text: String) {
+        self.label.setText(text)
     }
     
 

@@ -4,27 +4,7 @@ import SpriteKit
 final class SFButton: SKNode {
     
     /// ビューモデルクラス（プロトコル経由）
-    private var viewModel: SFButtonViewModelProtocol! 
-    
-    /// ボタンのラベルテキスト
-    var text: String {
-        get {
-            return self.viewModel.getText()
-        }
-        set(value) {
-            self.viewModel.setText(value)
-        }
-    }
-    
-//    /// ボタンの塗り潰しカラー
-//    var fillColor: UIColor {
-//        get {
-//            return self.viewModel.getFillColor()
-//        }
-//        set(value) {
-//            self.viewModel.setFillColor(value)
-//        }
-//    }
+    private var viewModel: SFButtonViewModelProtocol!
     
     /// ボタンの枠線のカラー
     var strokeColor: UIColor {
@@ -67,6 +47,18 @@ final class SFButton: SKNode {
         self.addChild(buttonNode)
         // ボタンにイベントを追加する
         self.isUserInteractionEnabled = true
+    }
+    
+    /// ボタンの塗り潰しカラーをセットする
+    /// - Parameter colorName: カラーカタログのカラー名
+    func setFillColor(_ colorName: SFColor.ColorName) {
+        self.viewModel.setFillColor(colorName)
+    }
+        
+    /// ボタンのラベルテキストを更新する
+    /// - Parameter val: ラベルテキストの文字列
+    func setText(_ text: String) {
+        self.viewModel.setText(text)
     }
         
     /// -
