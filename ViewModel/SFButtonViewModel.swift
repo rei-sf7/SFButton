@@ -1,5 +1,5 @@
 import Foundation
-import UIKit
+import SpriteKit
 
 /// ボタンのビューモデルクラスのプロトコル
 protocol SFButtonViewModelProtocol: AnyObject {
@@ -22,6 +22,7 @@ protocol SFButtonViewModelProtocol: AnyObject {
     func setStrokeColor(_ val: SFColor.ColorName)
     
     func getStrokeSize() -> CGFloat
+    
     func setStrokeSize(_ val: CGFloat)
     
     /// ボタンの塗り潰しカラーをセットする
@@ -31,6 +32,8 @@ protocol SFButtonViewModelProtocol: AnyObject {
     /// ボタンの塗り潰しカラーを取得する
     /// - Returns: カラー情報
     func getFillColor() -> UIColor
+    
+    func getButtonNode() -> SKShapeNode
 }
 
 
@@ -92,12 +95,16 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     /// ボタンの枠線の太さを取得する
     /// - Returns: 枠線の太さのポイントサイズ
     func getStrokeSize() -> CGFloat {
-        return self.model.button.lineWidth
+        return self.model.getStrokeSize()
     }
     
     /// ボタンの枠線の太さを更新する
     /// - Parameter val: 枠線の太さのポイントサイズ
     func setStrokeSize(_ val: CGFloat) {
-        self.model.button.lineWidth = val
+        self.model.setStrokeSize(val)
+    }
+    
+    func getButtonNode() -> SKShapeNode {
+        return self.model.getButtonNode()
     }
 }

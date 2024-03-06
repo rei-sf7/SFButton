@@ -4,12 +4,6 @@ import SpriteKit
 /// ボタンのモデルクラスのプロトコル
 protocol SFButtonModelProtocol: AnyObject {
     
-    /// ボタンのノード
-    var button: SKShapeNode { get }
-    
-    /// ラベルのノード
-    var label: SFLabel { get }
-
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名
     func setFillColor(_ colorName: SFColor.ColorName)
@@ -21,6 +15,14 @@ protocol SFButtonModelProtocol: AnyObject {
     /// ボタンの枠線のカラーを更新する
     /// - Parameter colorName: カラー情報
     func setStrokeColor(_ colorName: SFColor.ColorName)
+    
+    /// ボタンの枠線の太さを取得する
+    /// - Returns: 枠線の太さのポイントサイズ
+    func getStrokeSize() -> CGFloat
+    
+    /// ボタンの枠線の太さを更新する
+    /// - Parameter val: 枠線の太さのポイントサイズ
+    func setStrokeSize(_ val: CGFloat)
     
     /// ボタンのラベルテキストを取得する
     /// - Returns: ラベルテキストの文字列
@@ -43,6 +45,8 @@ protocol SFButtonModelProtocol: AnyObject {
     /// ボタンの透過度の更新
     /// - Parameter val: 透過度[0.0 - 1.0]
     func setAlpha(_ val: CGFloat)
+    
+    func getButtonNode() -> SKShapeNode
 }
 
 /// ボタンのモデルクラス
@@ -88,6 +92,18 @@ final class SFButtonModel: SFButtonModelProtocol {
         self.button.strokeColor = SFColor().getColor(colorName)
     }
     
+    /// ボタンの枠線の太さを取得する
+    /// - Returns: 枠線の太さのポイントサイズ
+    func getStrokeSize() -> CGFloat {
+        return self.button.lineWidth
+    }
+    
+    /// ボタンの枠線の太さを更新する
+    /// - Parameter val: 枠線の太さのポイントサイズ
+    func setStrokeSize(_ val: CGFloat) {
+        self.button.lineWidth = val
+    }
+    
     /// ボタンのラベルテキストを取得する
     /// - Returns: ラベルテキストの文字列
     func getText() -> String {
@@ -116,5 +132,9 @@ final class SFButtonModel: SFButtonModelProtocol {
     /// - Parameter val: 透過度[0.0 - 1.0]
     func setAlpha(_ val: CGFloat) {
         self.button.alpha = val
+    }
+    
+    func getButtonNode() -> SKShapeNode {
+        return self.button
     }
 }

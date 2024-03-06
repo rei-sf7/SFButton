@@ -32,8 +32,8 @@ final class SFButton: SKNode {
     private func setupBindings() {
         let model = SFButtonModel() as SFButtonModelProtocol
         self.viewModel = SFButtonViewModel(model) as SFButtonViewModelProtocol
-        /// 親ノードに子ノードを繋げる
-        let buttonNode = model.button
+        // 親ノードに子ノードを繋げる
+        let buttonNode = self.viewModel.getButtonNode()
         self.addChild(buttonNode)
         // ボタンにイベントを追加する
         self.isUserInteractionEnabled = true
@@ -43,6 +43,12 @@ final class SFButton: SKNode {
     /// - Parameter colorName: カラーカタログのカラー名
     func setFillColor(_ colorName: SFColor.ColorName) {
         self.viewModel.setFillColor(colorName)
+    }
+    
+    /// ボタンの枠線の太さを更新する
+    /// - Parameter val: 枠線の太さのポイントサイズ
+    func setStrokeSize(_ val: CGFloat) {
+        self.viewModel.setStrokeSize(val)
     }
         
     /// ボタンのラベルテキストを更新する
