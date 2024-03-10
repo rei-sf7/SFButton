@@ -21,7 +21,12 @@ protocol SFButtonViewModelProtocol: AnyObject {
     /// - Parameter val: カラー情報
     func setStrokeColor(_ val: SFColor.ColorName)
     
+    /// ボタンの枠線の太さを取得する
+    /// - Returns: 枠線の太さのポイントサイズ
     func getStrokeSize() -> CGFloat
+    
+    /// ボタンの枠線の太さを更新する
+    /// - Parameter val: 枠線の太さのポイントサイズ
     func setStrokeSize(_ val: CGFloat)
     
     /// ボタンの塗り潰しカラーをセットする
@@ -44,7 +49,7 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     /// - Parameter model: ボタンのモデルクラスのプロトコル
     init(_ model: SFButtonModelProtocol) {
         self.model = model
-        self.setFillColor(.blueWithHintsOfBlue)
+        self.setFillColor(.madderRed)
     }
     
     /// ボタンの透過度の更新

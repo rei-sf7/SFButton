@@ -34,6 +34,8 @@ protocol SFButtonModelProtocol: AnyObject {
     /// - Returns: カラー情報
     func getFillColor() -> UIColor
     
+    /// ボタンの表示サイズを更新する
+    /// - Parameter val: サイズの指定
     func setPanelSize(_ val: CGSize)
 
     /// ボタンの表示・非表示の切り替え
@@ -100,7 +102,8 @@ final class SFButtonModel: SFButtonModelProtocol {
         self.label.setText(text)
     }
     
-
+    /// ボタンの表示サイズを更新する
+    /// - Parameter val: サイズの指定
     func setPanelSize(_ val: CGSize) {
 //        self.button.frame = CGRectMake(self.button.frame.origin.x, self.button.frame.origin.y, val.width, val.height)
 //        self.label.size = val

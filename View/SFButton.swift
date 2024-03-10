@@ -46,12 +46,13 @@ final class SFButton: SKNode {
     }
         
     /// ボタンのラベルテキストを更新する
-    /// - Parameter val: ラベルテキストの文字列
+    /// - Parameter text: ラベルテキストの文字列
     func setText(_ text: String) {
         self.viewModel.setText(text)
     }
     
     /// ボタンの枠線のカラー
+    /// - Parameter colorName: カラーカタログのカラー名
     func setStrokeColor(_ colorName: SFColor.ColorName) {
         self.viewModel.setStrokeColor(colorName)
     }
