@@ -17,9 +17,14 @@ final class SFButton: SKNode {
     }
     
     /// 初期化
-    override init() {
+    override convenience init() {
+        self.init(0)
+    }
+    
+    /// 初期化
+    init(_ radius: CGFloat) {
         super.init()
-        self.setupBindings()
+        self.setupBindings(radius)
     }
     
     /// 初期化（定義のみ、未使用）
@@ -29,14 +34,18 @@ final class SFButton: SKNode {
     }
     
     /// ViewクラスにViewModelとModelを関連付ける
-    private func setupBindings() {
-        let model = SFButtonModel() as SFButtonModelProtocol
+    private func setupBindings(_ radius: CGFloat = 0) {
+        let model = SFButtonModel(radius) as SFButtonModelProtocol
         self.viewModel = SFButtonViewModel(model) as SFButtonViewModelProtocol
         /// 親ノードに子ノードを繋げる
         let buttonNode = model.button
         self.addChild(buttonNode)
         // ボタンにイベントを追加する
         self.isUserInteractionEnabled = true
+    }
+    
+    func setStyle(_ style: SFButtonModel.buttonOrder) {
+        self.viewModel.setStyle(style)
     }
     
     /// ボタンの塗り潰しカラーをセットする

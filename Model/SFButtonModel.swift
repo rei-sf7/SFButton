@@ -9,10 +9,13 @@ protocol SFButtonModelProtocol: AnyObject {
     
     /// ラベルのノード
     var label: SFLabel { get }
-
+    
     /// ボタンの塗り潰しカラーをセットする
-    /// - Parameter colorName: カラーカタログのカラー名
-    func setFillColor(_ colorName: SFColor.ColorName)
+    /// イベントの種類に合わせて調整する
+    /// - Parameters:
+    ///   - colorName: カラーカタログのカラー名
+    ///   - eventType: イベントの種類の列挙型
+    func setFillColor(_ colorName: SFColor.ColorName,_ eventType: SFButtonModel.eventType)
     
     /// ボタンの枠線のカラーを取得する
     /// - Returns: カラー情報
@@ -54,22 +57,73 @@ final class SFButtonModel: SFButtonModelProtocol {
     /// ラベルのノード
     private(set) var label: SFLabel
     
+    /// イベントの種類の列挙型
+    enum eventType: String {
+        /// 未指定
+        case none = "None"
+        /// ボタンに触れた瞬間に呼び出される
+        case touchDown = "TouchDown"
+        /// ボタンを押して指を離さないままボタンの外に移動し、再びボタンのそばに戻ってきたときに呼び出される
+        case touchDragEnter = "TouchDragEnter"
+        /// ボタンを押して指を離さないまま外側に移動したときに呼び出される
+        case touchDragExit = "TouchDragExit"
+        /// ボタンを押したあとにボタンの遠くで指を離したときに呼び出される
+        case touchUpOutside = "TouchUpOutside"
+    }
+    
+    /// ボタンの順序
+    enum buttonOrder: String {
+        /// 未指定
+        case none = "None"
+        /// 1つ目のボタン
+        case primary = "Primary"
+        /// 2つ目のボタン
+        case secondary = "Secondary"
+        /// 3つ目のボタン
+        case tertiary = "Tertiary"
+        /// 4つ目のボタン
+        case quaternary = "Quaternary"
+    }
+    
+    
     /// 初期化
-    init() {
-        self.button = SKShapeNode(rectOf: CGSize(width: 300, height: 80), cornerRadius: 5)
+    init(_ radius: CGFloat = 0) {
+        self.button = SKShapeNode(rectOf: CGSize(width: 300, height: 80), cornerRadius: radius)
         self.button.position = CGPoint(x: self.button.frame.size.width / 2, y: -self.button.frame.size.height / 2)
         self.button.lineWidth = 1
         self.label = SFLabel()
         self.label.setText("SFButton")
-        self.label.setFontColor(.white)
+        self.label.setFontColor(.white2)
         self.label.setAlignmentMode(.center, .center)
         self.button.addChild(self.label)    /// 親ノードに子ノードを繋げる
     }
-        
+    
+    /// ボタンの塗り潰しカラーをセットする
+    /// イベントの種類に合わせて調整する
+    /// - Parameters:
+    ///   - colorName: カラーカタログのカラー名
+    ///   - eventType: イベントの種類の列挙型
+    func setFillColor(_ colorName: SFColor.ColorName,_ eventType: SFButtonModel.eventType = .none) {
+        var fillColor = SFColor().getColor(colorName)
+        switch eventType {
+        case .touchDown:
+            fillColor = fillColor.withAlphaComponent(0.8)
+        case .touchDragEnter:
+            fillColor = fillColor.withAlphaComponent(0.8)
+        case .touchDragExit:
+            fillColor = fillColor.withAlphaComponent(0.2)
+        case .touchUpOutside:
+            fillColor = fillColor.withAlphaComponent(0.2)
+        default:
+            break
+        }
+        self.button.fillColor = fillColor
+    }
+    
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名
-    func setFillColor(_ colorName: SFColor.ColorName) {
-        self.button.fillColor = SFColor().getColor(colorName)
+    private func setFillColor(_ colorName: SFColor.ColorName) {
+        self.setFillColor(colorName, .none)
     }
     
     /// ボタンの塗り潰しカラーを取得する
