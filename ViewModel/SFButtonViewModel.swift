@@ -19,7 +19,7 @@ protocol SFButtonViewModelProtocol: AnyObject {
     
     /// ボタンの枠線のカラーを更新する
     /// - Parameter val: カラー情報
-    func setStrokeColor(_ val: SFColor.ColorName)
+    func setStrokeColor(_ val: SFColorDefine.ColorName)
     
     func setStyle(_ style: SFButtonDefine.buttonOrder)
     
@@ -33,7 +33,7 @@ protocol SFButtonViewModelProtocol: AnyObject {
     
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名
-    func setFillColor(_ colorName: SFColor.ColorName)
+    func setFillColor(_ colorName: SFColorDefine.ColorName)
     
     /// ボタンの塗り潰しカラーを取得する
     /// - Returns: カラー情報
@@ -73,7 +73,7 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名
-    func setFillColor(_ colorName: SFColor.ColorName) {
+    func setFillColor(_ colorName: SFColorDefine.ColorName) {
         self.model.setFillColor(colorName, .none)
     }
     
@@ -106,7 +106,7 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
     
     /// ボタンの枠線のカラーを更新する
     /// - Parameter colorName: カラー情報
-    func setStrokeColor(_ colorName: SFColor.ColorName) {
+    func setStrokeColor(_ colorName: SFColorDefine.ColorName) {
         self.model.setStrokeColor(colorName)
     }
     

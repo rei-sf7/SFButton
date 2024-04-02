@@ -50,7 +50,7 @@ final class SFButton: SKNode {
     
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名
-    func setFillColor(_ colorName: SFColor.ColorName) {
+    func setFillColor(_ colorName: SFColorDefine.ColorName) {
         self.viewModel.setFillColor(colorName)
     }
         
@@ -62,7 +62,7 @@ final class SFButton: SKNode {
     
     /// ボタンの枠線のカラー
     /// - Parameter colorName: カラーカタログのカラー名
-    func setStrokeColor(_ colorName: SFColor.ColorName) {
+    func setStrokeColor(_ colorName: SFColorDefine.ColorName) {
         self.viewModel.setStrokeColor(colorName)
     }
     

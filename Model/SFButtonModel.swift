@@ -15,7 +15,7 @@ protocol SFButtonModelProtocol: AnyObject {
     /// - Parameters:
     ///   - colorName: カラーカタログのカラー名
     ///   - eventType: イベントの種類の列挙型
-    func setFillColor(_ colorName: SFColor.ColorName,_ eventType: SFButtonDefine.eventType)
+    func setFillColor(_ colorName: SFColorDefine.ColorName,_ eventType: SFButtonDefine.eventType)
     
     /// ボタンの枠線のカラーを取得する
     /// - Returns: カラー情報
@@ -23,7 +23,7 @@ protocol SFButtonModelProtocol: AnyObject {
     
     /// ボタンの枠線のカラーを更新する
     /// - Parameter colorName: カラー情報
-    func setStrokeColor(_ colorName: SFColor.ColorName)
+    func setStrokeColor(_ colorName: SFColorDefine.ColorName)
     
     /// ボタンのラベルテキストを取得する
     /// - Returns: ラベルテキストの文字列
@@ -74,7 +74,7 @@ final class SFButtonModel: SFButtonModelProtocol {
     /// - Parameters:
     ///   - colorName: カラーカタログのカラー名
     ///   - eventType: イベントの種類の列挙型
-    func setFillColor(_ colorName: SFColor.ColorName,_ eventType: SFButtonDefine.eventType = .none) {
+    func setFillColor(_ colorName: SFColorDefine.ColorName,_ eventType: SFButtonDefine.eventType = .none) {
         var fillColor = SFColor().getColor(colorName)
         switch eventType {
         case .touchDown:
@@ -93,7 +93,7 @@ final class SFButtonModel: SFButtonModelProtocol {
     
     /// ボタンの塗り潰しカラーをセットする
     /// - Parameter colorName: カラーカタログのカラー名
-    private func setFillColor(_ colorName: SFColor.ColorName) {
+    private func setFillColor(_ colorName: SFColorDefine.ColorName) {
         self.setFillColor(colorName, .none)
     }
     
@@ -111,7 +111,7 @@ final class SFButtonModel: SFButtonModelProtocol {
     
     /// ボタンの枠線のカラーを更新する
     /// - Parameter colorName: カラー情報
-    func setStrokeColor(_ colorName: SFColor.ColorName) {
+    func setStrokeColor(_ colorName: SFColorDefine.ColorName) {
         self.button.strokeColor = SFColor().getColor(colorName)
     }
     
