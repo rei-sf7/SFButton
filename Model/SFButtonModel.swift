@@ -15,7 +15,7 @@ protocol SFButtonModelProtocol: AnyObject {
     /// - Parameters:
     ///   - colorName: カラーカタログのカラー名
     ///   - eventType: イベントの種類の列挙型
-    func setFillColor(_ colorName: SFColor.ColorName,_ eventType: SFButtonModel.eventType)
+    func setFillColor(_ colorName: SFColor.ColorName,_ eventType: SFButtonDefine.eventType)
     
     /// ボタンの枠線のカラーを取得する
     /// - Returns: カラー情報
@@ -57,35 +57,6 @@ final class SFButtonModel: SFButtonModelProtocol {
     /// ラベルのノード
     private(set) var label: SFLabel
     
-    /// イベントの種類の列挙型
-    enum eventType: String {
-        /// 未指定
-        case none = "None"
-        /// ボタンに触れた瞬間に呼び出される
-        case touchDown = "TouchDown"
-        /// ボタンを押して指を離さないままボタンの外に移動し、再びボタンのそばに戻ってきたときに呼び出される
-        case touchDragEnter = "TouchDragEnter"
-        /// ボタンを押して指を離さないまま外側に移動したときに呼び出される
-        case touchDragExit = "TouchDragExit"
-        /// ボタンを押したあとにボタンの遠くで指を離したときに呼び出される
-        case touchUpOutside = "TouchUpOutside"
-    }
-    
-    /// ボタンの順序
-    enum buttonOrder: String {
-        /// 未指定
-        case none = "None"
-        /// 1つ目のボタン
-        case primary = "Primary"
-        /// 2つ目のボタン
-        case secondary = "Secondary"
-        /// 3つ目のボタン
-        case tertiary = "Tertiary"
-        /// 4つ目のボタン
-        case quaternary = "Quaternary"
-    }
-    
-    
     /// 初期化
     init(_ radius: CGFloat = 0) {
         self.button = SKShapeNode(rectOf: CGSize(width: 300, height: 80), cornerRadius: radius)
@@ -103,7 +74,7 @@ final class SFButtonModel: SFButtonModelProtocol {
     /// - Parameters:
     ///   - colorName: カラーカタログのカラー名
     ///   - eventType: イベントの種類の列挙型
-    func setFillColor(_ colorName: SFColor.ColorName,_ eventType: SFButtonModel.eventType = .none) {
+    func setFillColor(_ colorName: SFColor.ColorName,_ eventType: SFButtonDefine.eventType = .none) {
         var fillColor = SFColor().getColor(colorName)
         switch eventType {
         case .touchDown:

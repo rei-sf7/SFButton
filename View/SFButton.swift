@@ -44,7 +44,7 @@ final class SFButton: SKNode {
         self.isUserInteractionEnabled = true
     }
     
-    func setStyle(_ style: SFButtonModel.buttonOrder) {
+    func setStyle(_ style: SFButtonDefine.buttonOrder) {
         self.viewModel.setStyle(style)
     }
     

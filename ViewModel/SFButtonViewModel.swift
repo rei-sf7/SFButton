@@ -21,7 +21,7 @@ protocol SFButtonViewModelProtocol: AnyObject {
     /// - Parameter val: カラー情報
     func setStrokeColor(_ val: SFColor.ColorName)
     
-    func setStyle(_ style: SFButtonModel.buttonOrder)
+    func setStyle(_ style: SFButtonDefine.buttonOrder)
     
     /// ボタンの枠線の太さを取得する
     /// - Returns: 枠線の太さのポイントサイズ
@@ -77,7 +77,7 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
         self.model.setFillColor(colorName, .none)
     }
     
-    func setStyle(_ style: SFButtonModel.buttonOrder) {
+    func setStyle(_ style: SFButtonDefine.buttonOrder) {
         switch style {
         case .primary:
             self.model.setFillColor(.madderRed, .none)
@@ -91,7 +91,6 @@ final class SFButtonViewModel: SFButtonViewModelProtocol {
             self.model.setFillColor(.white2, .none)
         }
     }
-    
     
     /// ボタンの塗り潰しカラーを取得する
     /// - Returns: カラー情報
